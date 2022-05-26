@@ -1,6 +1,6 @@
-#include <iostream>
+#include "gtest/gtest.h"
 
-int main() {
-  std::cout << "Hello, World!" << std::endl;
-  return 0;
+int main(int ac, char* av[]) {
+  testing::InitGoogleTest(&ac, av);
+  return RUN_ALL_TESTS();
 }

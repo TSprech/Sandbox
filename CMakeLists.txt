@@ -3,4 +3,11 @@ project(Sandbox)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Sandbox main.cpp)
+enable_testing()
+
+add_executable(SandboxTest test/SimpleTest.cpp main.cpp)
+add_test(SandboxTest SandboxTest)
+
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+add_subdirectory(test/googletest)
+target_link_libraries(SandboxTest gtest gtest_main)
