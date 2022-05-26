@@ -12,6 +12,7 @@ endif()
 
 add_executable(SandboxTest test/SimpleTest.cpp main.cpp)
 
+set(BUILD_GMOCK OFF)
 add_subdirectory(test/googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 target_link_libraries(SandboxTest gtest gtest_main)
@@ -23,6 +24,6 @@ gtest_discover_tests(SandboxTest
                      240)
 
 #if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
-target_link_options(SandboxTest PUBLIC --coverage)
-target_compile_options(SandboxTest PUBLIC --coverage)
+target_link_options(SandboxTest PUBLIC --coverage -fprofile-arcs -ftest-coverage)
+target_compile_options(SandboxTest PUBLIC --coverage -fprofile-arcs -ftest-coverage)
 #endif()
