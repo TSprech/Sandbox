@@ -23,6 +23,6 @@ gtest_discover_tests(SandboxTest
                      240)
 
 #if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
-    target_compile_options(SandboxTest PUBLIC --coverage)
-    target_link_options(SandboxTest INTERFACE --coverage)
+target_link_options(SandboxTest PUBLIC --coverage)
+target_compile_options(SandboxTest PUBLIC --coverage)
 #endif()
