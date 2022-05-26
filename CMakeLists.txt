@@ -16,3 +16,14 @@ gtest_discover_tests(SandboxTest
                      PROPERTIES
                      DISCOVERY_TIMEOUT  # How long to wait (in seconds) before crashing
                      240)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
+    target_compile_options(example
+            PUBLIC
+            "--coverage"
+            )
+    target_link_options(example
+            INTERFACE
+            "--coverage"
+            )
+endif()
