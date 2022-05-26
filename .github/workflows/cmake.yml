@@ -37,6 +37,8 @@ jobs:
 
     - name: lcov-action
       uses: danielealbano/lcov-action@v3
+      with:
+        output_lcov_info: ./coverage/lcov.info
 
     - name: Coveralls
       uses: coverallsapp/github-action@1.1.3
