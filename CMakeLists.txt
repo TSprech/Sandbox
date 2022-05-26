@@ -8,6 +8,6 @@ enable_testing()
 add_executable(SandboxTest test/SimpleTest.cpp main.cpp)
 add_test(SandboxTest SandboxTest)
 
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_subdirectory(test/googletest)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 target_link_libraries(SandboxTest gtest gtest_main)
