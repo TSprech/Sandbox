@@ -6,8 +6,14 @@ set(CMAKE_CXX_STANDARD 20)
 enable_testing()
 
 add_executable(SandboxTest test/SimpleTest.cpp main.cpp)
-add_test(SandboxTest SandboxTest)
 
-add_subdirectory(test/googletest)
+add_subdirectory(test/googletest/)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 target_link_libraries(SandboxTest gtest gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(SandboxTest
+                     PROPERTIES
+                     TEST_LIST test/SimpleTest.cpp
+                     DISCOVERY_TIMEOUT  # how long to wait (in seconds) before crashing
+                     240)
