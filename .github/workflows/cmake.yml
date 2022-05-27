@@ -41,10 +41,14 @@ jobs:
 
     - name: LCOV Run
       # Generate the .info file for the Coverall action next
-      run: lcov --capture --directory include --no-external --output-file lcov.info
+      run: lcov --capture --directory . --no-external --output-file lcov.info
+
+    - name: LCOV Filter
+      # Generate the .info file for the Coverall action next
+      run: --remove lcov.info '*/test/googletest/*' -o lcov_filtered.info
 
     - name: Coveralls
       uses: coverallsapp/github-action@1.1.3
       with:
-        path-to-lcov: lcov.info
+        path-to-lcov: lcov_filtered.info
         github-token: ${{ secrets.GITHUB_TOKEN }}
