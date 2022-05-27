@@ -41,7 +41,7 @@ jobs:
 
     - name: LCOV Run
       # Generate the .info file for the Coverall action next
-      run: lcov --capture --directory . --output-file lcov.info
+      run: lcov --capture --directory include --no-external --output-file lcov.info
 
     - name: Coveralls
       uses: coverallsapp/github-action@1.1.3
