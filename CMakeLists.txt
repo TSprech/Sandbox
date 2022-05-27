@@ -3,6 +3,8 @@ project(Sandbox)
 
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(include)
+
 enable_testing()
 
 find_program(GCOV_PATH gcov)
@@ -10,7 +12,7 @@ if(NOT GCOV_PATH)
     message(FATAL_ERROR "Code coverage analysis requires gcov!")
 endif()
 
-add_executable(SandboxTest test/SimpleTest.cpp main.cpp)
+add_executable(SandboxTest test/SimpleTest.cpp test/FakeLibraryTest.cpp main.cpp)
 
 set(BUILD_GMOCK OFF)
 add_subdirectory(test/googletest)

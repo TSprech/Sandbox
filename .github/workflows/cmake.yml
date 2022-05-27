@@ -36,9 +36,11 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}}
 
     - name: LCOV Install
+      # Install lcov to generate the .info file Coveralls requires
       run: sudo apt install lcov
 
     - name: LCOV Run
+      # Generate the .info file for the Coverall action next
       run: lcov --capture --directory . --output-file lcov.info
 
     - name: Coveralls
