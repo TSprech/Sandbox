@@ -45,7 +45,7 @@ jobs:
 
     - name: LCOV Filter
       # Generate the .info file for the Coverall action next
-      run: lcov --remove lcov.info '*/test/googletest/*' -o lcov_filtered.info
+      run: lcov --remove lcov.info '*/test/*' -o lcov_filtered.info
 
     - name: Coveralls
       uses: coverallsapp/github-action@1.1.3
