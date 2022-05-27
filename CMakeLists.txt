@@ -12,7 +12,7 @@ if(NOT GCOV_PATH)
     message(FATAL_ERROR "Code coverage analysis requires gcov!")
 endif()
 
-add_executable(SandboxTest test/SimpleTest.cpp test/FakeLibraryTest.cpp main.cpp)
+add_executable(SandboxTest test/SimpleTest.cpp test/FakeLibraryTest.cpp test/test_main.cpp)
 
 set(BUILD_GMOCK OFF)
 add_subdirectory(test/googletest)
@@ -25,7 +25,5 @@ gtest_discover_tests(SandboxTest
                      DISCOVERY_TIMEOUT  # How long to wait (in seconds) before crashing
                      240)
 
-#if(CMAKE_CXX_COMPILER_ID MATCHES GNU AND CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
-target_link_options(SandboxTest PUBLIC --coverage -fprofile-arcs -ftest-coverage)
-target_compile_options(SandboxTest PUBLIC --coverage -fprofile-arcs -ftest-coverage)
-#endif()
+target_link_options(SandboxTest PUBLIC --coverage)
+target_compile_options(SandboxTest PUBLIC --coverage)
