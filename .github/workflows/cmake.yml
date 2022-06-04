@@ -55,7 +55,7 @@ jobs:
 
     - name: LCOV Filter
       # Remove the files that should not show up in the test report (exclude the entire test folder)
-      run: lcov --remove lcov.info '*/test/*' -o lcov_filtered.info
+      run: lcov --remove lcov.info '*/test/googletest/*' -o lcov_filtered.info
 
     - name: Coveralls
       uses: coverallsapp/github-action@1.1.3
