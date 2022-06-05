@@ -30,6 +30,7 @@ jobs:
       run: |
            sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 11
            sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 11
+           sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-11 11
 
     - name: CMake Configure
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
