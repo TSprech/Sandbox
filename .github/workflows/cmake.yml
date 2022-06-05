@@ -23,17 +23,21 @@ jobs:
     - name: Update GCC
       run:   |
              sudo apt update
-             sudo apt install gcc-11 g++-11 gcov-11
+             sudo apt install gcc-11 g++-11
       shell: bash
 
+    - name: Change GCC Version
+      run: |
+           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 11
+           sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 11
 
     - name: CMake Configure
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-      env:
-       CC:  gcc-11
-       CXX:  g++-11
+      # env:
+      #  CC:  gcc-11
+      #  CXX:  g++-11
 
     - name: Build
       # Build your program with the given configuration
