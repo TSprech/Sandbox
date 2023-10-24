@@ -78,3 +78,5 @@ You can also always send an email to [writerside@jetbrains.com](mailto:writersid
         <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure Search</a>
     </category>
 </seealso>
+
+Extra text to test workflow
